@@ -1,0 +1,7 @@
+[user]
+	email = 58263593+Illucious@users.noreply.github.com
+	name = Illucious
+[push]
+	autoSetupRemote = true
+[init]
+	defaultBranch = main
