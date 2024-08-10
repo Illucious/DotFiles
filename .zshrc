@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -74,6 +74,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
+# On Start
+clear
+neofetch
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -91,18 +96,59 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-
-# On Start
-neofetch
-
-# Aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias install="sudo pacman -S"
-alias uninstall="sudo pacman -R"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+#
+#
+#
+# >>> aliases >>>
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 alias cls="clear"
+alias install="sudo apt install"
+alias uninstall="sudo apt remove"
+alias gs="git status"
+alias ga="git add --all"
+alias gc="git commit -m"
+alias lah="ls -lah"
+# alias for git bare repo
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# <<< aliases <<<
+
+
+# >>> Functions >>>
+# gerps a certain thiing from history
+function hg() {
+	history | grep "$1"
+}
+
+# fn2
+#
+# <<< Functions <<<
+
+
+# >>> nvim >>>
+export PATH="$PATH:/opt/nvim-linux64/bin"
+# <<< nvim <<<
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/vishesh/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/vishesh/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/vishesh/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/vishesh/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

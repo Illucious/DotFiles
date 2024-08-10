@@ -5,3 +5,6 @@
 	autoSetupRemote = true
 [init]
 	defaultBranch = main
+[credential]
+	helper = store
+
